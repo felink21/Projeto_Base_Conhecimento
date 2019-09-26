@@ -1,5 +1,5 @@
 module.exports = app => {
-    const {existsOrError, notExistsOrError, equalsOrError, nameMaxLenght, idPositive} = app.api.validator
+    const {existsOrError, notExistsOrError, nameMaxLenght, idPositive} = app.api.validator
 
     const save = (req, res) => {
         const category = {...req.body}
@@ -87,5 +87,21 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-    return {save, remove, get, getById }
+    const toTree = (categories, tree) => {
+        if (!tree) tree = categories.filter(c => !c.parentId)
+        tree = tree.map(parentNode => {
+            const isChild = node => node.parentId == parentNode.id
+            parentNode.children = toTree(categories, categories.filter(isChild))
+            return parentNode
+        })
+        return tree
+    }
+
+    const getTree = (req, res) => {
+        app.db('categories')
+            .then(categories => res.json(toTree(withPath(categories))))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return {save, remove, get, getById, getTree }
 }
