@@ -26,7 +26,7 @@ module.exports = app => {
     }
 
     function idPositive(value, msg) {
-        if (value <= 0) throw msg
+        if (parseInt(value) <= 0) throw msg
     }
 
     return {
