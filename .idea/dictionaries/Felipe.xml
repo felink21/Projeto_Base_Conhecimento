@@ -3,6 +3,7 @@
     <words>
       <w>bcrypt</w>
       <w>middlewares</w>
+      <w>signin</w>
     </words>
   </dictionary>
 </component>
