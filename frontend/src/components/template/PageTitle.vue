@@ -19,14 +19,17 @@
 </script>
 
 <style>
+    .page-title {
+        margin: 3px;
+    }
     .page-title h1 {
         margin: 5px;
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
 
     .page-title h2 {
         color: #777;
         margin: 5px;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 </style>

@@ -6,9 +6,9 @@ export function showError(e) {
     if (e && e.response && e.response.data) {
         Vue.toasted.global.defaultError({ msg: e.response.data })
     } else if (typeof e === 'string') {
-        toasted.global.defaultError({ msg: e })
+        Vue.toasted.global.defaultError({ msg: e })
     } else {
-        toasted.global.defaultError()
+        Vue.toasted.global.defaultError()
     }
 }
 
