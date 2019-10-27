@@ -8,22 +8,22 @@ module.exports = app => {
 
         const { Stat } = app.api.stat
 
-        const lastGuardedStat = await Stat.findOne({}, {},
-            { Sort: { 'createdAt': -1 } })
+        const lastStat = await Stat.findOne({}, {},
+            { sort: { 'createdAt' : -1 } })
 
-        const moreRecentStat = new Stat({
+        const stat = new Stat({
             users: usersCount.count,
             categories: categoriesCount.count,
             articles: articlesCount.count,
             createdAt: new Date()
         })
 
-        const changeUsers = !lastGuardedStat || moreRecentStat.users !== lastGuardedStat.users
-        const changeCategories = !lastGuardedStat || moreRecentStat.categories !== lastGuardedStat.categories
-        const changeArticles = !lastGuardedStat || moreRecentStat.articles !== lastGuardedStat.articles
+        const changeUsers = !lastStat || stat.users !== lastStat.users
+        const changeCategories = !lastStat || stat.categories !== lastStat.categories
+        const changeArticles = !lastStat || stat.articles !== lastStat.articles
 
-        if (changeUsers || changeCategories || changeArticles) {
-            moreRecentStat.save().then(() => console.log('[Stats] Estatísticas Atualizadas!'))
+        if(changeUsers || changeCategories || changeArticles) {
+            stat.save().then(() => console.log('[Stats] Estatíticas atualizadas!'))
         }
     })
 }
