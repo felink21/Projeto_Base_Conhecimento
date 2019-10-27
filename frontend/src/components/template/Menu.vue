@@ -4,6 +4,8 @@
 
 <script>
     import { mapState } from 'vuex'
+    import Tree from 'liquor-tree'
+    import { baseApiUrl } from "../../global";
 
     export default {
         name: "Menu",
