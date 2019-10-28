@@ -6,14 +6,14 @@
 
 <script>
     export default {
-        name: "Content"
+        name: 'Content'
     }
 </script>
 
-<style scoped>
+<style>
     .content {
         grid-area: content;
         background-color: #efefef;
-        paddig: 20px
+        padding: 20px;
     }
 </style>

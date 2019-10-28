@@ -13,7 +13,7 @@
 <script>
     import { mapState } from 'vuex'
     import Tree from 'liquor-tree'
-    import { baseApiUrl } from '../../global'
+    import { baseApiUrl } from '@/global'
     import axios from 'axios'
 
     export default {

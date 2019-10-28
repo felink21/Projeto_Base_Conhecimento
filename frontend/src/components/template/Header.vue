@@ -4,24 +4,22 @@
             <i class="fa fa-lg" :class="icon"></i>
         </a>
         <h1 class="title">
-            <router-link to="/">
-                {{ title }}
-            </router-link>
+            <router-link to="/">{{ title }}</router-link>
         </h1>
-        <UserDropDown v-if="!hideUserDropDown" />
+        <UserDropdown v-if="!hideUserDropdown" />
     </header>
 </template>
 
 <script>
-    import UserDropDown from './UserDropdown'
+    import UserDropdown from './UserDropdown'
 
     export default {
-        name: "Header",
-        components: { UserDropDown },
+        name: 'Header',
+        components: { UserDropdown },
         props: {
             title: String,
             hideToggle: Boolean,
-            hideUserDropDown: Boolean
+            hideUserDropdown: Boolean
         },
         computed: {
             icon() {
@@ -37,7 +35,7 @@
 </script>
 
 <style>
-    .header{
+    .header {
         grid-area: header;
         background: linear-gradient(to right, #1e469a, #49a7c1);
 
@@ -68,7 +66,7 @@
         width: 60px;
         height: 100%;
         color: #fff;
-        justify-content: flex-start;
+        justify-self: flex-start;
         text-decoration: none;
 
         display: flex;
